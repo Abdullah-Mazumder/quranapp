@@ -13,7 +13,7 @@ const RightSideContainer = ({ fullSurah }) => {
     const rightSideTopHeight = rightSideTopRef?.current?.offsetHeight;
     if (window.innerWidth < 768) {
       rightSideBottomRef.current.style.height = `${
-        window.innerHeight - (60 + 30 + rightSideTopHeight)
+        window.innerHeight - (60 + 50 + rightSideTopHeight)
       }px`;
     }
   }, [loading]);
