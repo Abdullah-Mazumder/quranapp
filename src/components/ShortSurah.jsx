@@ -1,9 +1,7 @@
 import { Box } from "@mui/material";
 import RestoreIcon from "@mui/icons-material/Restore";
-import { forwardRef } from "react";
 
-const ShortSurah = forwardRef((props, ref) => {
-  const { surah } = props;
+const ShortSurah = ({ surah }) => {
   const {
     arabicName,
     banglaName,
@@ -17,8 +15,6 @@ const ShortSurah = forwardRef((props, ref) => {
   return (
     <div
       className={`bgColor2 hoverBg p-2 cursor-pointer rounded-md w-full mr-1 short-surah`}
-      // style={{ height: style.height }}
-      // ref={ref}
     >
       <div className="flex items-center justify-evenly md:justify-between gap-3">
         <div className="surahLogo w-[45px] h-[45px] flex items-center justify-center">
@@ -53,6 +49,6 @@ const ShortSurah = forwardRef((props, ref) => {
       </div>
     </div>
   );
-});
+};
 
 export default ShortSurah;
