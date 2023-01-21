@@ -1,18 +1,20 @@
 import ShortSurah from "./ShortSurah";
-// import { FixedSizeList as List } from "react-window";
-// import { useEffect } from "react";
+// import { VariableSizeList as List } from "react-window";
+// import { createRef, useEffect, useRef } from "react";
 // import { useState } from "react";
 
 const ShortSurahContainer = ({ surahList }) => {
   // const [sideBarHight, setSideBarHight] = useState(0);
-  // const [childHeights, setChildHeights] = useState([]);
+  // const refs = useRef(
+  //   new Array(surahList.length).fill().map(() => createRef())
+  // );
 
   // useEffect(() => {
-  //   let childElements = document.getElementsByClassName("short-surah");
-  //   childElements = [...childElements];
-
-  //   const newChildHeights = childElements?.map((child) => child.offsetHeight);
-  //   setChildHeights(newChildHeights);
+  //   refs.current = refs.current.slice(0, surahList.length);
+  //   while (refs.current.length < surahList.length) {
+  //     refs.current.push(createRef());
+  //   }
+  //   console.log(refs);
   // }, [surahList]);
 
   // useEffect(() => {
@@ -26,10 +28,14 @@ const ShortSurahContainer = ({ surahList }) => {
           height={sideBarHight}
           width={"100%"}
           itemCount={surahList.length}
-          itemSize={60}
+          itemSize={({ index }) => refs?.current[index]?.current?.offsetHeight}
         >
           {({ index, style }) => (
-            <ShortSurah surah={surahList[index]} style={style} />
+            <ShortSurah
+              surah={surahList[index]}
+              style={style}
+              ref={refs.current[index]}
+            />
           )}
         </List>
       )} */}
