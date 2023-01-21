@@ -44,7 +44,7 @@ const LeftSideContainer = ({ shortSurahList }) => {
   }, [darkMode]);
   return (
     <div
-      className="mb-2 md:mb-4 lg:mb-2 md:my-0 md:!mt-2 absolute top-0 left-0 md:static h-[90vh] w-[98%] md:w-[inherit] md:h-auto bgColor1 z-[9999] rounded-lg p-3 mx-1 md:mx-0 overflow-hidden translate-x-[-130%] md:translate-x-0"
+      className="mb-2 md:mb-4 lg:mb-2 md:my-0 md:!mt-2 absolute top-0 left-0 md:static h-[91vh] w-[98%] md:w-[inherit] md:h-auto bgColor1 z-[9999] rounded-lg p-3 mx-1 md:mx-0 overflow-hidden translate-x-[-130%] md:translate-x-0"
       id="sidebar"
     >
       <div className="md:hidden bgColor2 mb-3 rounded-lg p-4 py-3 flex items-center justify-between">
