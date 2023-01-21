@@ -50,7 +50,7 @@ const Nabvar = () => {
         <AppBar
           position="fixed"
           className="bgColor1 flex justify-center"
-          // sx={{ height: "60px" }}
+          sx={{ height: "60px" }}
         >
           <Toolbar variant="dense">
             <div className="container mx-auto">
