@@ -54,7 +54,7 @@ const Nabvar = () => {
         >
           <Toolbar variant="dense">
             <div className="container mx-auto">
-              <div className="flex items-center justify-between mb-1">
+              <div className="flex items-center justify-between">
                 <div className="logo">
                   <img src={logo} alt="quran" className="w-11 md:w-14" />
                 </div>
