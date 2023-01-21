@@ -1,7 +1,7 @@
 import ShortSurah from "./ShortSurah";
-import { FixedSizeList as List } from "react-window";
-import { useEffect } from "react";
-import { useState } from "react";
+// import { FixedSizeList as List } from "react-window";
+// import { useEffect } from "react";
+// import { useState } from "react";
 
 const ShortSurahContainer = ({ surahList }) => {
   // const [sideBarHight, setSideBarHight] = useState(0);
