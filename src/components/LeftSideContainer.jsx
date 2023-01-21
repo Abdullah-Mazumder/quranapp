@@ -48,10 +48,10 @@ const LeftSideContainer = ({
   }, [darkMode]);
   return (
     <div
-      className="absolute top-0 left-0 md:static h-[calc(100vh-70px)] w-[98%]  md:w-[550px] bgColor1 z-[9999] rounded-lg p-3 mx-1 md:mx-0 overflow-hidden translate-x-[-130%] md:translate-x-0"
+      className="absolute top-0 left-0 md:static h-[calc(100vh-70px)] w-[98%]  md:w-[550px] bgColor1 z-[9999] rounded-lg p-3 mx-1 md:mx-0 !overflow-hidden translate-x-[-130%] md:translate-x-0"
       id="sidebar"
     >
-      <div className="md:hidden bgColor2 mb-3 rounded-lg p-4 py-3 flex items-center justify-between">
+      <div className="md:hidden bgColor2 mb-3 rounded-lg p-3 flex items-center justify-between">
         <div className="right scale-[1.4] !z-[99999]">
           <div className="">
             <DarkModeSwitch
@@ -79,24 +79,47 @@ const LeftSideContainer = ({
         </div>
       </div>
 
-      <div
-        className={`${
-          shortSurahList.loading ? "overflow-y-hidden" : "overflow-y-auto"
-        } overflow-x-hidden h-[86%] md:h-[100%]`}
-      >
-        {shortSurahList.loading ? (
-          <LeftSideSkeleton />
-        ) : (
-          <ShortSurahContainer
-            surahList={shortSurahList.list.allSurahList}
-            currentSurahNumber={currentSurahNumber}
-            setCurrentSurahNumber={setCurrentSurahNumber}
-            toggleSidebar={toggleSidebar}
-          />
-        )}
+      <div className="h-[94.5%] md:h-full">
+        <div
+          className={`${
+            shortSurahList.loading ? "overflow-y-hidden" : "overflow-y-auto"
+          } overflow-x-hidden h-[inherit]`}
+        >
+          {shortSurahList.loading ? (
+            <LeftSideSkeleton />
+          ) : (
+            <ShortSurahContainer
+              surahList={shortSurahList.list.allSurahList}
+              currentSurahNumber={currentSurahNumber}
+              setCurrentSurahNumber={setCurrentSurahNumber}
+              toggleSidebar={toggleSidebar}
+            />
+          )}
+        </div>
       </div>
     </div>
   );
 };
+
+{
+  /* <div className="pb-2 h-[inherit]">
+  <div
+    className={`${
+      shortSurahList.loading ? "overflow-y-hidden" : "overflow-y-auto"
+    } overflow-x-hidden h-[inherit]`}
+  >
+    {shortSurahList.loading ? (
+      <LeftSideSkeleton />
+    ) : (
+      <ShortSurahContainer
+        surahList={shortSurahList.list.allSurahList}
+        currentSurahNumber={currentSurahNumber}
+        setCurrentSurahNumber={setCurrentSurahNumber}
+        toggleSidebar={toggleSidebar}
+      />
+    )}
+  </div>
+</div>; */
+}
 
 export default LeftSideContainer;
