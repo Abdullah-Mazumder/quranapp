@@ -10,6 +10,7 @@ const ShortSurah = ({ surah, style }) => {
     enLocation,
     enTranslatedName,
     id,
+    totalAyah,
   } = surah;
   return (
     <div
@@ -41,7 +42,7 @@ const ShortSurah = ({ surah, style }) => {
               <span className="text-sm">( {enLocation} )</span>
             </Box>
             <Box component="span" className="">
-              Ayah: {300}
+              Ayah: {totalAyah}
             </Box>
           </div>
         </div>
