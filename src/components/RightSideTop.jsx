@@ -31,7 +31,7 @@ const RightSideTop = ({ rightSideTopRef, surahDetails }) => {
             <div className="w-full flex items-center justify-between">
               <audio ref={audioRef} />
               {!isPlaying && !isLoading && (
-                <div className="button">
+                <div className="button p-0">
                   <Tooltip
                     TransitionComponent={Zoom}
                     title="Play The Surah"
@@ -44,8 +44,9 @@ const RightSideTop = ({ rightSideTopRef, surahDetails }) => {
                   >
                     <IconButton
                       aria-label="play"
-                      size="large"
+                      size="medium"
                       onClick={() => audioUrlHandler(audio)}
+                      sx={{ padding: "8px" }}
                     >
                       <PlayArrow fontSize="inherit" className="txtColor" />
                     </IconButton>
