@@ -75,7 +75,7 @@ const LeftSideContainer = ({ shortSurahList }) => {
         </div>
       </div>
 
-      <div className="overflow-y-auto overflow-x-hidden h-[87%] md:h-[100%]">
+      <div className="overflow-y-auto overflow-x-hidden h-[86%] md:h-[100%]">
         {shortSurahList.loading ? (
           <LeftSideSkeleton />
         ) : (
