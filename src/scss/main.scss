@@ -1,0 +1,108 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden !important;
+}
+
+#holyQuran {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden !important;
+}
+
+.surahLogo {
+  background-image: url(./../media/surahLogo.png);
+  background-size: 45px;
+  background-repeat: no-repeat;
+}
+
+.dark {
+  background-color: #001e3c;
+  background-image: url("../media/quran-icon-png-8826.png");
+  background-repeat: repeat;
+  background-size: 50px;
+
+  .bismillahImg {
+    filter: brightness(500%) contrast(500%) saturate(0%);
+  }
+
+  .txtColor {
+    color: white;
+  }
+
+  .bgColor1 {
+    background-color: #0a1929;
+    opacity: 0.98;
+  }
+
+  .bgColor2 {
+    background-color: #001e3c;
+  }
+
+  .bgColor3 {
+    background-color: #001e3c;
+    color: white;
+  }
+
+  .hoverBg:hover {
+    background-color: #002e5c;
+  }
+
+  .active {
+    background-color: #002e5c;
+  }
+
+  .skBg {
+    background-color: #03284c;
+  }
+}
+
+.light {
+  background-color: white;
+  background-image: url("../media/bg.png");
+  background-repeat: repeat;
+  background-size: 50px;
+
+  .bismillahImg {
+    filter: brightness(0%) contrast(100%) saturate(0%);
+  }
+
+  .txtColor {
+    color: black;
+  }
+
+  .bgColor1 {
+    background-color: #e8ecf0;
+  }
+
+  .bgColor2 {
+    background-color: white;
+  }
+
+  .bgColor3 {
+    background-color: #6b6b6b;
+    color: white;
+  }
+
+  .hoverBg:hover {
+    background-color: #e0e3e7;
+  }
+
+  .active {
+    background-color: #e0e3e7;
+  }
+
+  .skBg {
+    background-color: #dae0e5;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  border-radius: 10%;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: lightgrey;
+  border-radius: 10%;
+}
