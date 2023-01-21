@@ -2,7 +2,7 @@ import ShortSurahSkeleton from "./ShortSurahSkeleton";
 
 const LeftSideSkeleton = () => {
   return (
-    <div className="md:w-[350px] space-y-2  mr-2">
+    <div className="md:w-[320px] space-y-2  mr-2">
       <ShortSurahSkeleton />
       <ShortSurahSkeleton />
       <ShortSurahSkeleton />

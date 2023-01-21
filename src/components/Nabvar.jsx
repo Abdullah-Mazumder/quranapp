@@ -6,6 +6,8 @@ import logo from "./../media/quranLogo.png";
 import bismillah from "../media/bismillah.png";
 import { useEffect, useState } from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
+import { Fab } from "@mui/material";
+import MenuBookTwoToneIcon from "@mui/icons-material/MenuBookTwoTone";
 
 const Nabvar = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -18,6 +20,19 @@ const Nabvar = () => {
     const deviceTheme = window.matchMedia("(prefers-color-scheme: dark)");
     setDarkMode(deviceTheme.matches);
   }, []);
+
+  const toggleSidebar = () => {
+    const sideBar = document.querySelector("#sidebar");
+    if (sideBar.classList.contains("translate-x-[-130%]")) {
+      sideBar.classList.add("transition-all");
+      sideBar.classList.remove("translate-x-[-130%]");
+      sideBar.classList.add("translate-x-[0%]");
+    } else {
+      sideBar.classList.add("transition-all");
+      sideBar.classList.add("translate-x-[-130%]");
+      sideBar.classList.remove("translate-x-[0%]");
+    }
+  };
 
   useEffect(() => {
     const holyQuranContainer = document.querySelector("#holyQuran");
@@ -35,7 +50,7 @@ const Nabvar = () => {
         <AppBar
           position="fixed"
           className="bgColor1 flex justify-center"
-          sx={{ height: "60px" }}
+          // sx={{ height: "60px" }}
         >
           <Toolbar variant="dense">
             <div className="container mx-auto">
@@ -50,13 +65,28 @@ const Nabvar = () => {
                     className="bismillahImg w-32 md:w-auto"
                   />
                 </div>
-                <div className="right scale-[1.4] lg:scale-[1.6]">
+                <div className="right scale-[1.6] hidden md:block">
                   <DarkModeSwitch
                     checked={darkMode}
                     onChange={toggleDarkMode}
                     moonColor="#24889C"
                     sunColor="#24889C"
                   />
+                </div>
+                <div className="right md:hidden">
+                  <Box component="div" className="">
+                    <Fab
+                      aria-label="add"
+                      size="small"
+                      className="bgColor2 hoverBg txtColor"
+                      onClick={toggleSidebar}
+                    >
+                      <MenuBookTwoToneIcon
+                        fontSize="inherit"
+                        className="txtColor"
+                      />
+                    </Fab>
+                  </Box>
                 </div>
               </div>
             </div>
