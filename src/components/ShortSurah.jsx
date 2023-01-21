@@ -1,7 +1,13 @@
+/* eslint-disable eqeqeq */
 import { Box } from "@mui/material";
 import RestoreIcon from "@mui/icons-material/Restore";
 
-const ShortSurah = ({ surah }) => {
+const ShortSurah = ({
+  surah,
+  currentSurahNumber,
+  setCurrentSurahNumber,
+  toggleSidebar,
+}) => {
   const {
     arabicName,
     banglaName,
@@ -14,13 +20,19 @@ const ShortSurah = ({ surah }) => {
   } = surah;
   return (
     <div
-      className={`bgColor2 hoverBg p-2 cursor-pointer rounded-md w-full mr-1 short-surah`}
+      className={`bgColor2 hoverBg p-2 cursor-pointer rounded-md w-full mr-1 ${
+        currentSurahNumber == id ? "active" : ""
+      } short-surah`}
+      onClick={() => {
+        setCurrentSurahNumber(id);
+        toggleSidebar();
+      }}
     >
       <div className="flex items-center justify-evenly md:justify-between gap-3">
         <div className="surahLogo w-[45px] h-[45px] flex items-center justify-center">
           <span className="text-sm">{id}</span>
         </div>
-        <div className="details w-[200px] lg:w-[280px]">
+        <div className="details w-[200px] lg:w-[230px]">
           <div className="name flex flex-col gap-0 text-md md:text-lg">
             <div className="my-1">
               <Box component="div" className="">

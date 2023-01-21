@@ -10,10 +10,53 @@ body {
   overflow: hidden !important;
 }
 
+@media (max-width: 768px) {
+  #holyQuran {
+    padding-bottom: 20px;
+    overflow: hidden !important;
+  }
+}
+
 .surahLogo {
   background-image: url(./../media/surahLogo.png);
   background-size: 45px;
   background-repeat: no-repeat;
+}
+
+.wave-pillar {
+  animation: wave 1s ease-in-out infinite;
+}
+
+.wave-pillar:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+.wave-pillar:nth-of-type(2) {
+  animation-delay: 0.2s;
+}
+
+.wave-pillar:nth-of-type(3) {
+  animation-delay: 0.4s;
+}
+
+.wave-pillar:nth-of-type(4) {
+  animation-delay: 0.6s;
+}
+
+.wave-pillar:nth-of-type(5) {
+  animation-delay: 0.8s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(2.2);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 
 .dark {
@@ -55,6 +98,10 @@ body {
   .skBg {
     background-color: #03284c;
   }
+
+  .waveBg {
+    background-color: white;
+  }
 }
 
 .light {
@@ -94,6 +141,10 @@ body {
 
   .skBg {
     background-color: #dae0e5;
+  }
+
+  .waveBg {
+    background-color: black;
   }
 }
 

@@ -65,7 +65,7 @@ const Nabvar = () => {
                     className="bismillahImg w-32 md:w-auto"
                   />
                 </div>
-                <div className="right scale-[1.6] hidden md:block">
+                <div className="right scale-[1.6] hidden md:block mr-3">
                   <DarkModeSwitch
                     checked={darkMode}
                     onChange={toggleDarkMode}

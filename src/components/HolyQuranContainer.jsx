@@ -9,6 +9,11 @@ const HolyQuranContainer = () => {
     loading: true,
     list: null,
   });
+  const [fullSurah, setFullSurah] = useState({
+    loading: true,
+    surah: "",
+  });
+  const [currentSurahNumber, setCurrentSurahNumber] = useState(1);
 
   useEffect(() => {
     setTimeout(() => {
@@ -21,13 +26,32 @@ const HolyQuranContainer = () => {
     }, 2000);
   }, []);
 
+  useEffect(() => {
+    setFullSurah({
+      loading: true,
+      surah: "",
+    });
+    setTimeout(() => {
+      import(`./../data/allSurah/${currentSurahNumber}.json`).then((data) => {
+        setFullSurah({
+          loading: false,
+          surah: data.default,
+        });
+      });
+    }, 2000);
+  }, [currentSurahNumber]);
+
   return (
     <div className="mt-[60px] h-full w-full">
       <div className="container mx-auto h-full">
         <div className="h-[94%] w-ful">
           <div className="txtColor md:flex gap-2 h-full">
-            <LeftSideContainer shortSurahList={shortSurahList} />
-            <RightSideContainer />
+            <LeftSideContainer
+              shortSurahList={shortSurahList}
+              currentSurahNumber={currentSurahNumber}
+              setCurrentSurahNumber={setCurrentSurahNumber}
+            />
+            <RightSideContainer fullSurah={fullSurah} />
           </div>
         </div>
       </div>
