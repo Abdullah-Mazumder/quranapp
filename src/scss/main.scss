@@ -17,6 +17,10 @@ body {
   }
 }
 
+.holyQuranContainer {
+  height: calc(100vh - 60px);
+}
+
 .surahLogo {
   background-image: url(./../media/surahLogo.png);
   background-size: 45px;
