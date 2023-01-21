@@ -79,7 +79,11 @@ const LeftSideContainer = ({
         </div>
       </div>
 
-      <div className="overflow-y-auto overflow-x-hidden h-[86%] md:h-[100%]">
+      <div
+        className={`${
+          shortSurahList.loading ? "overflow-y-hidden" : "overflow-y-auto"
+        } overflow-x-hidden h-[86%] md:h-[100%]`}
+      >
         {shortSurahList.loading ? (
           <LeftSideSkeleton />
         ) : (

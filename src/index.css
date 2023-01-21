@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "hafezi";
+  src: url("./fonts/noorehuda.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "bn";
+  src: url("./fonts/banglaquran.otf") format("truetype");
+}
+
+.arabicTxt {
+  font-family: "hafezi" !important;
+}
+
+.bnTxt {
+  font-family: "bn";
+}

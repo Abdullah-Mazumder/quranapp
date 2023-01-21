@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from "react";
+import RightSideBottomContainer from "./RightSideBottomContainer";
 import RightSideTop from "./RightSideTop";
 import RightSideTopSkeleton from "./RightSideTopSkeleton";
+import RightSideBottomSkeleton from "./RightSideBottomSkeleton";
 
 const RightSideContainer = ({ fullSurah }) => {
   const rightSideTopRef = useRef();
   const rightSideBottomRef = useRef();
-
   const { loading, surah } = fullSurah;
 
   useEffect(() => {
@@ -30,13 +31,16 @@ const RightSideContainer = ({ fullSurah }) => {
         )}
       </div>
       <div
-        className={`rightSideBottom bgColor1 h-[calc(100vh-230px)] md:h-full mt-2 rounded-lg p-2 md:p-3 lg:p-4`}
+        className={`rightSideBottom bgColor1 md:h-[89%] mt-2 rounded-lg p-2 md:p-3 lg:p-4 ${
+          loading ? "overflow-hidden" : "overflow-y-auto"
+        }`}
         ref={rightSideBottomRef}
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quibusdam
-        praesentium ea fugiat laudantium numquam cupiditate maxime libero qui?
-        Eligendi nam cum tenetur commodi qui dolores perferendis vero sapiente
-        exercitationem.
+        {loading ? (
+          <RightSideBottomSkeleton />
+        ) : (
+          <RightSideBottomContainer fullSurah={surah.surah} />
+        )}
       </div>
     </div>
   );
