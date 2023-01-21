@@ -65,7 +65,7 @@ const RightSideTop = ({ rightSideTopRef, surahDetails }) => {
                   }}
                 >
                   <div
-                    className="wave-container cursor-pointer h-full p-3"
+                    className="wave-container cursor-pointer h-full p-1"
                     onClick={() => setIsPlaying(false)}
                   >
                     <div className="wave-animation flex items-center gap-1 w-full h-full cursor-pointer">

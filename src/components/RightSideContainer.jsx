@@ -31,7 +31,7 @@ const RightSideContainer = ({ fullSurah }) => {
         )}
       </div>
       <div
-        className={`rightSideBottom bgColor1 md:h-[89%] mt-2 rounded-lg p-2 md:p-3 lg:p-4 ${
+        className={`rightSideBottom bgColor1 md:h-[90%] lg:h-[89%] mt-2 rounded-lg p-2 md:p-3 lg:p-4 ${
           loading ? "overflow-hidden" : "overflow-y-auto"
         }`}
         ref={rightSideBottomRef}
