@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Ayah from "./Ayah";
 import {
   List,
@@ -11,13 +11,21 @@ const RightSideBottomContainer = ({
   fullSurah,
   saveToReadLater,
   readLater,
+  lastReadedAyah,
 }) => {
+  const ayahRef = useRef();
   const cache = useRef(
     new CellMeasurerCache({
       fixedWidth: true,
       defaultHeight: 100,
     })
   );
+
+  useEffect(() => {
+    if (ayahRef.current) {
+      ayahRef.current.scrollIntoView({ block: "end", behavior: "smooth" });
+    }
+  }, []);
   return (
     <>
       <div
@@ -36,6 +44,7 @@ const RightSideBottomContainer = ({
                 deferredMeasurementCache={cache.current}
                 rowCount={fullSurah.verses.length}
                 data={fullSurah.verses}
+                scrollToIndex={lastReadedAyah - 1}
                 rowRenderer={({ key, index, style, parent }) => {
                   const ayah = fullSurah.verses[index];
                   return (
@@ -52,6 +61,8 @@ const RightSideBottomContainer = ({
                           surahNumber={fullSurah.id}
                           saveToReadLater={saveToReadLater}
                           readLater={readLater}
+                          lastReadedAyah={lastReadedAyah}
+                          ayahRef={ayahRef}
                         />
                       </div>
                     </CellMeasurer>
@@ -69,6 +80,8 @@ const RightSideBottomContainer = ({
                 surahNumber={fullSurah.id}
                 saveToReadLater={saveToReadLater}
                 readLater={readLater}
+                lastReadedAyah={lastReadedAyah}
+                ayahRef={ayahRef}
               />
             ))}
           </>

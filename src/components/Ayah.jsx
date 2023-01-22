@@ -26,7 +26,8 @@ const Ayah = ({
   saveToReadLater,
   surahNumber,
   readLater,
-  // ayahRef,
+  ayahRef,
+  lastReadedAyah,
   // currentAyahPlaying,
   // setCurrentAyahPlaying,
 }) => {
@@ -68,12 +69,14 @@ const Ayah = ({
       <div
         className={`bgColor2 hoverBg p-4 text-justify rounded-md`}
         id={`ayat${id}`}
-        // ref={currentAyahPlaying == id ? ayahRef : null}
+        ref={lastReadedAyah == id ? ayahRef : null}
       >
         <Box
           component="div"
           className={`flex items-center ${
-            readLater[surahNumber] == id ? "justify-between" : "justify-center"
+            readLater && readLater[surahNumber] == id
+              ? "justify-between"
+              : "justify-center"
           } mb-2 h-[45px]`}
         >
           <div className="flex gap-3 items-center justify-center text-center txtColor">

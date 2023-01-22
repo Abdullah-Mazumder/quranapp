@@ -59,7 +59,7 @@ const ShortSurah = ({
               </Box>
             </div>
           </div>
-          {readLater[id] && <RestoreIcon />}
+          {readLater && readLater[id] && <RestoreIcon />}
         </div>
       </div>
     </div>

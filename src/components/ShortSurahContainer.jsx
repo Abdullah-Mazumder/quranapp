@@ -5,7 +5,7 @@ import {
   CellMeasurer,
   CellMeasurerCache,
 } from "react-virtualized";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 const ShortSurahContainer = ({
   surahList,
@@ -21,11 +21,6 @@ const ShortSurahContainer = ({
       defaultHeight: 100,
     })
   );
-  useEffect(() => {
-    if (leftSideRef.current && currentSurahNumber) {
-      leftSideRef?.current?.scrollToRow(currentSurahNumber - 1);
-    }
-  }, [currentSurahNumber]);
   return (
     <div className="space-y-2 w-full h-[100%]">
       <AutoSizer>
@@ -37,6 +32,7 @@ const ShortSurahContainer = ({
             rowHeight={cache.current.rowHeight}
             deferredMeasurementCache={cache.current}
             rowCount={114}
+            scrollToIndex={currentSurahNumber - 1}
             rowRenderer={({ key, index, style, parent }) => {
               const surah = surahList[index];
               return (

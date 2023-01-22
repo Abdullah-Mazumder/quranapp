@@ -5,7 +5,12 @@ import RightSideTop from "./RightSideTop";
 import RightSideTopSkeleton from "./RightSideTopSkeleton";
 import RightSideBottomSkeleton from "./RightSideBottomSkeleton";
 
-const RightSideContainer = ({ fullSurah, saveToReadLater, readLater }) => {
+const RightSideContainer = ({
+  fullSurah,
+  saveToReadLater,
+  readLater,
+  lastReadedAyah,
+}) => {
   const { loading, surah } = fullSurah;
 
   return (
@@ -25,6 +30,7 @@ const RightSideContainer = ({ fullSurah, saveToReadLater, readLater }) => {
               fullSurah={surah.surah}
               saveToReadLater={saveToReadLater}
               readLater={readLater}
+              lastReadedAyah={lastReadedAyah}
             />
           )}
         </div>
