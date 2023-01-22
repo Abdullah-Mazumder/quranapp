@@ -80,11 +80,7 @@ const LeftSideContainer = ({
       </div>
 
       <div className="h-[94.5%] md:h-full">
-        <div
-          className={`${
-            shortSurahList.loading ? "overflow-y-hidden" : "overflow-y-auto"
-          } overflow-x-hidden h-[inherit]`}
-        >
+        <div className={`overflow-y-hidden overflow-x-hidden h-[inherit]`}>
           {shortSurahList.loading ? (
             <LeftSideSkeleton />
           ) : (
@@ -100,26 +96,5 @@ const LeftSideContainer = ({
     </div>
   );
 };
-
-{
-  /* <div className="pb-2 h-[inherit]">
-  <div
-    className={`${
-      shortSurahList.loading ? "overflow-y-hidden" : "overflow-y-auto"
-    } overflow-x-hidden h-[inherit]`}
-  >
-    {shortSurahList.loading ? (
-      <LeftSideSkeleton />
-    ) : (
-      <ShortSurahContainer
-        surahList={shortSurahList.list.allSurahList}
-        currentSurahNumber={currentSurahNumber}
-        setCurrentSurahNumber={setCurrentSurahNumber}
-        toggleSidebar={toggleSidebar}
-      />
-    )}
-  </div>
-</div>; */
-}
 
 export default LeftSideContainer;

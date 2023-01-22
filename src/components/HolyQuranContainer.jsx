@@ -45,7 +45,7 @@ const HolyQuranContainer = () => {
     <div className="mt-[60px] h-full w-full">
       <div className="container mx-auto h-full">
         <div className="holyQuranContainer w-ful">
-          <div className="my-16 h-full">
+          <div className="my-[4.2rem] h-full">
             <div className="txtColor md:flex gap-2 h-full">
               <LeftSideContainer
                 shortSurahList={shortSurahList}

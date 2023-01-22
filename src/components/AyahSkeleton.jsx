@@ -4,7 +4,7 @@ import React from "react";
 const AyahSkeleton = () => {
   return (
     <>
-      <div className={`bgColor2 mt-2 p-4 rounded-md`}>
+      <div className={`bgColor2 p-4 rounded-md`}>
         <div className="">
           <Box>
             <Skeleton

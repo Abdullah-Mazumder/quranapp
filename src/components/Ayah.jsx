@@ -70,7 +70,7 @@ const Ayah = memo(
     return (
       <>
         <div
-          className={`bgColor2 hoverBg mt-2 p-4 text-justify rounded-md`}
+          className={`bgColor2 hoverBg p-4 text-justify rounded-md`}
           id={`ayat${id}`}
           // ref={currentAyahPlaying == id ? ayahRef : null}
         >
@@ -128,7 +128,7 @@ const Ayah = memo(
                       TransitionComponent={Zoom}
                       title="Play The Surah"
                       arrow={true}
-                      placement="left"
+                      placement="right"
                       classes={{
                         tooltip: "darkBgColor1",
                         tooltipArrow: "darkBgColor1",
@@ -152,7 +152,7 @@ const Ayah = memo(
                     TransitionComponent={Zoom}
                     title="Pause The Surah"
                     arrow={true}
-                    placement="left"
+                    placement="right"
                     classes={{
                       tooltip: "darkBgColor1",
                       tooltipArrow: "darkBgColor1",
@@ -196,7 +196,7 @@ const Ayah = memo(
                     TransitionComponent={Zoom}
                     title="Loading..."
                     arrow={true}
-                    placement="left"
+                    placement="right"
                     classes={{
                       tooltip: "darkBgColor1",
                       tooltipArrow: "darkBgColor1",

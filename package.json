@@ -15,8 +15,7 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-toggle-dark-mode": "^1.1.1",
-    "react-virtualized-auto-sizer": "^1.0.7",
-    "react-window": "^1.8.8",
+    "react-virtualized": "^9.22.3",
     "web-vitals": "^2.1.0"
   },
   "scripts": {

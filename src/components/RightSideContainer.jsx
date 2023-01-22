@@ -6,41 +6,25 @@ import RightSideTopSkeleton from "./RightSideTopSkeleton";
 import RightSideBottomSkeleton from "./RightSideBottomSkeleton";
 
 const RightSideContainer = ({ fullSurah }) => {
-  const rightSideTopRef = useRef();
-  const rightSideBottomRef = useRef();
   const { loading, surah } = fullSurah;
 
-  useEffect(() => {
-    const rightSideTopHeight = rightSideTopRef?.current?.offsetHeight;
-    if (window.innerWidth < 768) {
-      rightSideBottomRef.current.style.height = `${
-        window.innerHeight - (60 + 30 + rightSideTopHeight)
-      }px`;
-    }
-  }, [loading]);
   return (
-    <div className="my-[4rem] md:my-2 md:w-full mx-1 md:mx-0 h-full md:h-auto overflow-hidden">
-      <div className="rightSideTop">
+    <div className="mx-1 md:mx-0 h-[calc(100vh-70px)] md:w-full overflow-hidden">
+      <div className="rightSideTop h-[90px]">
         {loading ? (
           <RightSideTopSkeleton />
         ) : (
-          <RightSideTop
-            rightSideTopRef={rightSideTopRef}
-            surahDetails={surah.surahDetails}
-          />
+          <RightSideTop surahDetails={surah.surahDetails} />
         )}
       </div>
-      <div
-        className={`rightSideBottom bgColor1 md:h-[90%] lg:h-[89%] mt-2 rounded-lg p-2 md:p-3 lg:p-4 ${
-          loading ? "overflow-hidden" : "overflow-y-auto"
-        }`}
-        ref={rightSideBottomRef}
-      >
-        {loading ? (
-          <RightSideBottomSkeleton />
-        ) : (
-          <RightSideBottomContainer fullSurah={surah.surah} />
-        )}
+      <div className="h-[calc(100vh-170px)] bgColor1 rounded-lg overflow-hidden mt-2 p-2 lg:p-3">
+        <div className="h-[100%] w-[inherit]">
+          {loading ? (
+            <RightSideBottomSkeleton />
+          ) : (
+            <RightSideBottomContainer fullSurah={surah.surah} />
+          )}
+        </div>
       </div>
     </div>
   );
