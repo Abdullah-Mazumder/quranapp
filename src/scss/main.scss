@@ -110,6 +110,16 @@ body {
   .divider {
     border-bottom: 0.5px solid rgb(51, 65, 85);
   }
+
+  .bgWarning {
+    background-color: #191207;
+    color: rgb(255, 226, 183);
+  }
+
+  .bgSuccess {
+    background-color: #0c130d;
+    color: rgb(204, 232, 205);
+  }
 }
 
 .light {
@@ -157,6 +167,16 @@ body {
 
   .divider {
     border-bottom: 0.5px solid #b9bdc2;
+  }
+
+  .bgWarning {
+    background-color: #fff4e5;
+    color: rgb(102, 60, 0);
+  }
+
+  .bgSuccess {
+    background-color: rgb(237, 247, 237);
+    color: rgb(30, 70, 32);
   }
 }
 

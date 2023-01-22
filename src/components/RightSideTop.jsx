@@ -105,13 +105,12 @@ const RightSideTop = ({ rightSideTopRef, surahDetails }) => {
                       tooltipArrow: "darkBgColor1",
                     }}
                   >
-                    <IconButton aria-label="play" size="medium">
-                      <CircularProgress
-                        classes={{
-                          circle: "txtColor",
-                        }}
-                      />
-                    </IconButton>
+                    <CircularProgress
+                      classes={{
+                        circle: "txtColor",
+                      }}
+                      size="2rem"
+                    />
                   </Tooltip>
                 )}
               </div>

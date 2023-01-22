@@ -1,10 +1,12 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import LeftSideContainer from "./LeftSideContainer";
 import RightSideContainer from "./RightSideContainer";
 
 const HolyQuranContainer = () => {
+  const leftSideRef = useRef(null);
   const [shortSurahList, setShortSurahList] = useState({
     loading: true,
     list: null,
@@ -13,9 +15,41 @@ const HolyQuranContainer = () => {
     loading: true,
     surah: "",
   });
-  const [currentSurahNumber, setCurrentSurahNumber] = useState(1);
+  const [currentSurahNumber, setCurrentSurahNumber] = useState(null);
+  const [readLater, setReadLater] = useState("");
+  const [lastReadedAyah, setLastReadedAyah] = useState(null);
+
+  const saveToReadLater = (surah, ayah) => {
+    if (!localStorage.getItem("holyQuran")) {
+      localStorage.setItem("holyQuran", JSON.stringify({}));
+    }
+    const holyQuranLocal = JSON.parse(localStorage.getItem("holyQuran"));
+    // eslint-disable-next-line eqeqeq
+    if (holyQuranLocal[surah] && holyQuranLocal[surah] == ayah) {
+      delete holyQuranLocal[surah];
+      delete holyQuranLocal.lastRead;
+    } else {
+      holyQuranLocal[surah] = ayah.toString();
+      holyQuranLocal.lastRead = surah;
+    }
+    setReadLater(holyQuranLocal);
+    localStorage.setItem("holyQuran", JSON.stringify(holyQuranLocal));
+  };
 
   useEffect(() => {
+    if (readLater?.lastRead) {
+      setCurrentSurahNumber(readLater.lastRead);
+      setLastReadedAyah(readLater[readLater.lastRead]);
+    } else {
+      setCurrentSurahNumber(1);
+      setLastReadedAyah(1);
+    }
+  }, [readLater]);
+
+  useEffect(() => {
+    if (localStorage.getItem("holyQuran")) {
+      setReadLater(JSON.parse(localStorage.getItem("holyQuran")));
+    }
     setTimeout(() => {
       import("./../data/allSurah").then((data) => {
         setShortSurahList({
@@ -31,14 +65,16 @@ const HolyQuranContainer = () => {
       loading: true,
       surah: "",
     });
-    setTimeout(() => {
-      import(`./../data/allSurah/${currentSurahNumber}.json`).then((data) => {
-        setFullSurah({
-          loading: false,
-          surah: data.default,
+    if (currentSurahNumber) {
+      setTimeout(() => {
+        import(`./../data/allSurah/${currentSurahNumber}.json`).then((data) => {
+          setFullSurah({
+            loading: false,
+            surah: data.default,
+          });
         });
-      });
-    }, 2000);
+      }, 2000);
+    }
   }, [currentSurahNumber]);
 
   return (
@@ -51,8 +87,14 @@ const HolyQuranContainer = () => {
                 shortSurahList={shortSurahList}
                 currentSurahNumber={currentSurahNumber}
                 setCurrentSurahNumber={setCurrentSurahNumber}
+                readLater={readLater}
+                leftSideRef={leftSideRef}
               />
-              <RightSideContainer fullSurah={fullSurah} />
+              <RightSideContainer
+                fullSurah={fullSurah}
+                saveToReadLater={saveToReadLater}
+                readLater={readLater}
+              />
             </div>
           </div>
         </div>

@@ -13,6 +13,8 @@ const LeftSideContainer = ({
   shortSurahList,
   currentSurahNumber,
   setCurrentSurahNumber,
+  readLater,
+  leftSideRef,
 }) => {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -89,6 +91,8 @@ const LeftSideContainer = ({
               currentSurahNumber={currentSurahNumber}
               setCurrentSurahNumber={setCurrentSurahNumber}
               toggleSidebar={toggleSidebar}
+              readLater={readLater}
+              leftSideRef={leftSideRef}
             />
           )}
         </div>

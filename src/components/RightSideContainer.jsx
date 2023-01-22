@@ -5,7 +5,7 @@ import RightSideTop from "./RightSideTop";
 import RightSideTopSkeleton from "./RightSideTopSkeleton";
 import RightSideBottomSkeleton from "./RightSideBottomSkeleton";
 
-const RightSideContainer = ({ fullSurah }) => {
+const RightSideContainer = ({ fullSurah, saveToReadLater, readLater }) => {
   const { loading, surah } = fullSurah;
 
   return (
@@ -19,10 +19,13 @@ const RightSideContainer = ({ fullSurah }) => {
       </div>
       <div className="h-[calc(100vh-230px)] md:h-[calc(100vh-170px)] bgColor1 rounded-lg overflow-hidden mt-2 p-2 lg:p-3">
         <div className="h-[100%] w-[inherit]">
-          {loading ? (
-            <RightSideBottomSkeleton />
-          ) : (
-            <RightSideBottomContainer fullSurah={surah.surah} />
+          {loading && <RightSideBottomSkeleton />}
+          {!loading && (
+            <RightSideBottomContainer
+              fullSurah={surah.surah}
+              saveToReadLater={saveToReadLater}
+              readLater={readLater}
+            />
           )}
         </div>
       </div>

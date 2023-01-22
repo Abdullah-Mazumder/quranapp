@@ -5,25 +5,33 @@ import {
   CellMeasurer,
   CellMeasurerCache,
 } from "react-virtualized";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const ShortSurahContainer = ({
   surahList,
   currentSurahNumber,
   setCurrentSurahNumber,
   toggleSidebar,
+  readLater,
 }) => {
+  const leftSideRef = useRef(null);
   const cache = useRef(
     new CellMeasurerCache({
       fixedWidth: true,
       defaultHeight: 100,
     })
   );
+  useEffect(() => {
+    if (leftSideRef.current && currentSurahNumber) {
+      leftSideRef?.current?.scrollToRow(currentSurahNumber - 1);
+    }
+  }, [currentSurahNumber]);
   return (
     <div className="space-y-2 w-full h-[100%]">
       <AutoSizer>
         {({ width, height }) => (
           <List
+            ref={leftSideRef}
             width={width}
             height={height}
             rowHeight={cache.current.rowHeight}
@@ -39,12 +47,16 @@ const ShortSurahContainer = ({
                   columnIndex={0}
                   rowIndex={index}
                 >
-                  <div style={{ ...style, paddingBottom: "7px" }}>
+                  <div
+                    style={{ ...style, paddingBottom: "7px" }}
+                    id={`short-surah-${surah.id}`}
+                  >
                     <ShortSurah
                       surah={surah}
                       currentSurahNumber={currentSurahNumber}
                       setCurrentSurahNumber={setCurrentSurahNumber}
                       toggleSidebar={toggleSidebar}
+                      readLater={readLater}
                     />
                   </div>
                 </CellMeasurer>

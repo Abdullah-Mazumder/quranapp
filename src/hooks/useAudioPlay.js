@@ -7,7 +7,6 @@ const useAudioPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const audioUrlHandler = (url) => {
-    console.log(url);
     if (!audioUrl) {
       setAudioUrl(url);
       setIsLoading(true);
@@ -41,7 +40,7 @@ const useAudioPlayer = () => {
     if (isPlaying) {
       audioRef.current.play();
     } else {
-      audioRef.current.pause();
+      audioRef.current?.pause();
     }
   }, [isPlaying]);
 

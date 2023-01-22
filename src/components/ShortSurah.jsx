@@ -7,6 +7,7 @@ const ShortSurah = ({
   currentSurahNumber,
   setCurrentSurahNumber,
   toggleSidebar,
+  readLater,
 }) => {
   const {
     arabicName,
@@ -28,36 +29,38 @@ const ShortSurah = ({
         toggleSidebar();
       }}
     >
-      <div className="flex items-center justify-evenly md:justify-between gap-3">
+      <div className="flex items-center justify-between gap-3">
         <div className="surahLogo w-[45px] h-[45px] flex items-center justify-center">
           <span className="text-sm">{id}</span>
         </div>
-        <div className="details w-[200px] lg:w-[230px]">
-          <div className="name flex flex-col gap-0 text-md md:text-lg">
-            <div className="my-1">
-              <Box component="div" className="">
-                <span className="arabicTxt text-lg md:text-xl">
-                  {arabicName}{" "}
-                </span>
-                <span className="text-sm">( {banglaName} )</span>
+        <div className="w-[80%] details flex items-center justify-between">
+          <div>
+            <div className="name flex flex-col gap-0 text-md md:text-lg">
+              <div className="my-1">
+                <Box component="div" className="">
+                  <span className="arabicTxt text-lg md:text-xl">
+                    {arabicName}{" "}
+                  </span>
+                  <span className="text-sm">( {banglaName} )</span>
+                </Box>
+              </div>
+              <Box style={{ marginTop: "-5px" }} className="">
+                <span>{enTranslatedName} </span>
+                <span className="text-sm">( {englishName} )</span>
               </Box>
             </div>
-            <Box style={{ marginTop: "-5px" }} className="">
-              <span>{enTranslatedName} </span>
-              <span className="text-sm">( {englishName} )</span>
-            </Box>
+            <div className="bottom flex gap-3 mt-1 text-xs md:text-sm">
+              <Box component="span" className="">
+                <span className="arabicTxt">{arLocation} </span>
+                <span className="text-sm">( {enLocation} )</span>
+              </Box>
+              <Box component="span" className="">
+                Ayah: {totalAyah}
+              </Box>
+            </div>
           </div>
-          <div className="bottom flex gap-3 mt-1 text-xs md:text-sm">
-            <Box component="span" className="">
-              <span className="arabicTxt">{arLocation} </span>
-              <span className="text-sm">( {enLocation} )</span>
-            </Box>
-            <Box component="span" className="">
-              Ayah: {totalAyah}
-            </Box>
-          </div>
+          {readLater[id] && <RestoreIcon />}
         </div>
-        <RestoreIcon />
       </div>
     </div>
   );
