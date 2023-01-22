@@ -28,13 +28,36 @@ const RightSideTop = ({ rightSideTopRef, surahDetails }) => {
       <div>
         <div className="bgColor1 p-2 rounded-lg flex justify-center">
           <div className="w-[90%] md:w-[400px] lg:w-[600px]">
-            <div className="w-full flex items-center justify-between">
-              <audio ref={audioRef} />
-              {!isPlaying && !isLoading && (
-                <div className="button p-0">
+            <div className="w-full flex items-center justify-between flex-row-reverse">
+              <div className="w-[50px] flex items-center justify-end">
+                <audio ref={audioRef} />
+                {!isPlaying && !isLoading && (
+                  <div className="button p-0">
+                    <Tooltip
+                      TransitionComponent={Zoom}
+                      title="Play The Surah"
+                      arrow={true}
+                      placement="right"
+                      classes={{
+                        tooltip: "darkBgColor1",
+                        tooltipArrow: "darkBgColor1",
+                      }}
+                    >
+                      <IconButton
+                        aria-label="play"
+                        size="medium"
+                        onClick={() => audioUrlHandler(audio)}
+                        sx={{ padding: "8px" }}
+                      >
+                        <PlayArrow fontSize="inherit" className="txtColor" />
+                      </IconButton>
+                    </Tooltip>
+                  </div>
+                )}
+                {isPlaying && !isLoading && (
                   <Tooltip
                     TransitionComponent={Zoom}
-                    title="Play The Surah"
+                    title="Pause The Surah"
                     arrow={true}
                     placement="right"
                     classes={{
@@ -42,83 +65,58 @@ const RightSideTop = ({ rightSideTopRef, surahDetails }) => {
                       tooltipArrow: "darkBgColor1",
                     }}
                   >
-                    <IconButton
-                      aria-label="play"
-                      size="medium"
-                      onClick={() => audioUrlHandler(audio)}
-                      sx={{ padding: "8px" }}
+                    <div
+                      className="wave-container cursor-pointer h-full"
+                      onClick={() => setIsPlaying(false)}
                     >
-                      <PlayArrow fontSize="inherit" className="txtColor" />
+                      <div className="wave-animation flex items-center gap-1 w-full h-full cursor-pointer">
+                        <div
+                          className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
+                          onClick={() => setIsPlaying(false)}
+                        ></div>
+                        <div
+                          className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
+                          onClick={() => setIsPlaying(false)}
+                        ></div>
+                        <div
+                          className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
+                          onClick={() => setIsPlaying(false)}
+                        ></div>
+                        <div
+                          className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
+                          onClick={() => setIsPlaying(false)}
+                        ></div>
+                        <div
+                          className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
+                          onClick={() => setIsPlaying(false)}
+                        ></div>
+                      </div>
+                    </div>
+                  </Tooltip>
+                )}
+                {isLoading && (
+                  <Tooltip
+                    TransitionComponent={Zoom}
+                    title="Loading..."
+                    arrow={true}
+                    placement="right"
+                    classes={{
+                      tooltip: "darkBgColor1",
+                      tooltipArrow: "darkBgColor1",
+                    }}
+                  >
+                    <IconButton aria-label="play" size="medium">
+                      <CircularProgress
+                        classes={{
+                          circle: "txtColor",
+                        }}
+                      />
                     </IconButton>
                   </Tooltip>
-                </div>
-              )}
-              {isPlaying && !isLoading && (
-                <Tooltip
-                  TransitionComponent={Zoom}
-                  title="Pause The Surah"
-                  arrow={true}
-                  placement="right"
-                  classes={{
-                    tooltip: "darkBgColor1",
-                    tooltipArrow: "darkBgColor1",
-                  }}
-                >
-                  <div
-                    className="wave-container cursor-pointer h-full"
-                    onClick={() => setIsPlaying(false)}
-                  >
-                    <div className="wave-animation flex items-center gap-1 w-full h-full cursor-pointer">
-                      <div
-                        className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
-                        onClick={() => setIsPlaying(false)}
-                      ></div>
-                      <div
-                        className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
-                        onClick={() => setIsPlaying(false)}
-                      ></div>
-                      <div
-                        className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
-                        onClick={() => setIsPlaying(false)}
-                      ></div>
-                      <div
-                        className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
-                        onClick={() => setIsPlaying(false)}
-                      ></div>
-                      <div
-                        className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
-                        onClick={() => setIsPlaying(false)}
-                      ></div>
-                    </div>
-                  </div>
-                </Tooltip>
-              )}
-              {isLoading && (
-                <Tooltip
-                  TransitionComponent={Zoom}
-                  title="Loading..."
-                  arrow={true}
-                  placement="right"
-                  classes={{
-                    tooltip: "darkBgColor1",
-                    tooltipArrow: "darkBgColor1",
-                  }}
-                >
-                  <IconButton aria-label="play" size="medium">
-                    <CircularProgress
-                      classes={{
-                        circle: "txtColor",
-                      }}
-                    />
-                  </IconButton>
-                </Tooltip>
-              )}
-              <div className="details w-full flex justify-evenly items-center gap-3">
-                <div>
-                  <div className="surahLogo w-[45px] h-[45px] flex items-center justify-center">
-                    <span className="text-xs md:text-sm">{id}</span>
-                  </div>
-                </div>
+                )}
+              </div>
+
+              <div className="details flex justify-around items-center gap-3">
                 <div>
                   <div className="top">
                     <Box component="div" className="txtColor">
@@ -152,6 +150,11 @@ const RightSideTop = ({ rightSideTopRef, surahDetails }) => {
                       Ayah: {totalAyah}
                     </Box>
                   </div>
+                </div>
+              </div>
+              <div>
+                <div className="surahLogo w-[45px] h-[45px] flex items-center justify-center">
+                  <span className="text-xs md:text-sm">{id}</span>
                 </div>
               </div>
               <div className="icon hidden md:block h-16">
