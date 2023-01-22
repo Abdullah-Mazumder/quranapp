@@ -36,7 +36,7 @@ const RightSideTop = ({ rightSideTopRef, surahDetails }) => {
                     TransitionComponent={Zoom}
                     title="Play The Surah"
                     arrow={true}
-                    placement="left"
+                    placement="right"
                     classes={{
                       tooltip: "darkBgColor1",
                       tooltipArrow: "darkBgColor1",
@@ -58,39 +58,35 @@ const RightSideTop = ({ rightSideTopRef, surahDetails }) => {
                   TransitionComponent={Zoom}
                   title="Pause The Surah"
                   arrow={true}
-                  placement="left"
+                  placement="right"
                   classes={{
                     tooltip: "darkBgColor1",
                     tooltipArrow: "darkBgColor1",
                   }}
                 >
                   <div
-                    className="wave-container cursor-pointer h-full p-1"
+                    className="wave-container cursor-pointer h-full"
                     onClick={() => setIsPlaying(false)}
                   >
                     <div className="wave-animation flex items-center gap-1 w-full h-full cursor-pointer">
                       <div
-                        className="wave-pillar w-[3px] h-[15px] waveBg rounded-sm"
+                        className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
                         onClick={() => setIsPlaying(false)}
                       ></div>
                       <div
-                        className="wave-pillar w-[3px] h-[15px] waveBg rounded-sm"
+                        className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
                         onClick={() => setIsPlaying(false)}
                       ></div>
                       <div
-                        className="wave-pillar w-[3px] h-[15px] waveBg rounded-sm"
+                        className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
                         onClick={() => setIsPlaying(false)}
                       ></div>
                       <div
-                        className="wave-pillar w-[3px] h-[15px] waveBg rounded-sm"
+                        className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
                         onClick={() => setIsPlaying(false)}
                       ></div>
                       <div
-                        className="wave-pillar w-[3px] h-[15px] waveBg rounded-sm"
-                        onClick={() => setIsPlaying(false)}
-                      ></div>
-                      <div
-                        className="wave-pillar w-[3px] h-[15px] waveBg rounded-sm"
+                        className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
                         onClick={() => setIsPlaying(false)}
                       ></div>
                     </div>
@@ -102,20 +98,22 @@ const RightSideTop = ({ rightSideTopRef, surahDetails }) => {
                   TransitionComponent={Zoom}
                   title="Loading..."
                   arrow={true}
-                  placement="left"
+                  placement="right"
                   classes={{
                     tooltip: "darkBgColor1",
                     tooltipArrow: "darkBgColor1",
                   }}
                 >
-                  <CircularProgress
-                    classes={{
-                      circle: "txtColor",
-                    }}
-                  />
+                  <IconButton aria-label="play" size="medium">
+                    <CircularProgress
+                      classes={{
+                        circle: "txtColor",
+                      }}
+                    />
+                  </IconButton>
                 </Tooltip>
               )}
-              <div className="details flex items-center gap-3">
+              <div className="details w-full flex justify-evenly items-center gap-3">
                 <div>
                   <div className="surahLogo w-[45px] h-[45px] flex items-center justify-center">
                     <span className="text-xs md:text-sm">{id}</span>
@@ -156,7 +154,7 @@ const RightSideTop = ({ rightSideTopRef, surahDetails }) => {
                   </div>
                 </div>
               </div>
-              <div className="icon h-12 md:h-16">
+              <div className="icon hidden md:block h-16">
                 <img
                   src={icon}
                   style={{ height: "100%", width: "auto" }}

@@ -164,27 +164,23 @@ const Ayah = memo(
                     >
                       <div className="wave-animation flex items-center gap-1 w-full h-full cursor-pointer">
                         <div
-                          className="wave-pillar w-[3px] h-[15px] waveBg rounded-sm"
+                          className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
                           onClick={() => setIsPlaying(false)}
                         ></div>
                         <div
-                          className="wave-pillar w-[3px] h-[15px] waveBg rounded-sm"
+                          className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
                           onClick={() => setIsPlaying(false)}
                         ></div>
                         <div
-                          className="wave-pillar w-[3px] h-[15px] waveBg rounded-sm"
+                          className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
                           onClick={() => setIsPlaying(false)}
                         ></div>
                         <div
-                          className="wave-pillar w-[3px] h-[15px] waveBg rounded-sm"
+                          className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
                           onClick={() => setIsPlaying(false)}
                         ></div>
                         <div
-                          className="wave-pillar w-[3px] h-[15px] waveBg rounded-sm"
-                          onClick={() => setIsPlaying(false)}
-                        ></div>
-                        <div
-                          className="wave-pillar w-[3px] h-[15px] waveBg rounded-sm"
+                          className="wave-pillar w-[2px] h-[12px] waveBg rounded-sm"
                           onClick={() => setIsPlaying(false)}
                         ></div>
                       </div>
