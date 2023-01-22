@@ -35,6 +35,10 @@ const Nabvar = () => {
   };
 
   useEffect(() => {
+    const transitionEle = document.querySelector(".transition-all");
+    if (transitionEle) {
+      transitionEle.classList.remove("transition-all");
+    }
     const holyQuranContainer = document.querySelector("#holyQuran");
     if (darkMode) {
       holyQuranContainer.classList.add("dark");
