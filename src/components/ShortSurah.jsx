@@ -29,11 +29,11 @@ const ShortSurah = ({
         toggleSidebar();
       }}
     >
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex items-center justify-evenly md:justify-between gap-3">
         <div className="surahLogo w-[45px] h-[45px] flex items-center justify-center">
           <span className="text-sm">{id}</span>
         </div>
-        <div className="w-[80%] details flex items-center justify-between">
+        <div className="w-[50%] md:w-[80%] details flex items-center justify-between">
           <div>
             <div className="name flex flex-col gap-0 text-md md:text-lg">
               <div className="my-1">
