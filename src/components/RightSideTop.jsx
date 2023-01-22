@@ -129,7 +129,11 @@ const RightSideTop = ({ rightSideTopRef, surahDetails }) => {
                         className="text-sm"
                         onClick={() => setIsPlaying(false)}
                       >
-                        ( {englishName} )
+                        ({" "}
+                        {englishName.length > 15
+                          ? `${englishName.slice(0, 12)}...`
+                          : englishName}{" "}
+                        )
                       </span>
                     </Box>
                   </div>
