@@ -17,7 +17,7 @@ const RightSideContainer = ({ fullSurah }) => {
           <RightSideTop surahDetails={surah.surahDetails} />
         )}
       </div>
-      <div className="h-[calc(100vh-170px)] bgColor1 rounded-lg overflow-hidden mt-2 p-2 lg:p-3">
+      <div className="h-[calc(100vh-220px)] md:h-[calc(100vh-170px)] bgColor1 rounded-lg overflow-hidden mt-2 p-2 lg:p-3">
         <div className="h-[100%] w-[inherit]">
           {loading ? (
             <RightSideBottomSkeleton />

@@ -20,7 +20,7 @@ const ShortSurahContainer = ({
     })
   );
   return (
-    <div className="space-y-2 w-full h-full">
+    <div className="space-y-2 w-full h-[100%]">
       <AutoSizer>
         {({ width, height }) => (
           <List
