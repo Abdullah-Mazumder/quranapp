@@ -35,12 +35,7 @@ const RightSideBottomContainer = ({ fullSurah }) => {
                   columnIndex={0}
                   rowIndex={index}
                 >
-                  <div
-                    style={{ ...style }}
-                    className={`${
-                      index === fullSurah.verses.length - 1 ? "pb-0" : "pb-2"
-                    }`}
-                  >
+                  <div style={{ ...style, paddingBottom: "5px" }}>
                     <Ayah ayah={ayah} surahNumber={fullSurah.id} />
                   </div>
                 </CellMeasurer>
@@ -49,10 +44,6 @@ const RightSideBottomContainer = ({ fullSurah }) => {
           />
         )}
       </AutoSizer>
-
-      {/* {fullSurah?.verses?.map((ayah) => {
-        return <Ayah key={ayah.id} ayah={ayah} surahNumber={fullSurah.id} />;
-      })} */}
     </div>
   );
 };

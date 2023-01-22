@@ -55,6 +55,7 @@ const Nabvar = () => {
           position="fixed"
           className="bgColor1 flex justify-center"
           sx={{ height: "60px" }}
+          color="default"
         >
           <Toolbar variant="dense">
             <div className="container mx-auto">

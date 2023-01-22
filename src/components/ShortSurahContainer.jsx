@@ -39,10 +39,7 @@ const ShortSurahContainer = ({
                   columnIndex={0}
                   rowIndex={index}
                 >
-                  <div
-                    style={{ ...style }}
-                    className={`${index === 113 ? "pb-0" : "pb-2"}`}
-                  >
+                  <div style={{ ...style, paddingBottom: "5px" }}>
                     <ShortSurah
                       surah={surah}
                       currentSurahNumber={currentSurahNumber}
