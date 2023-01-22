@@ -39,7 +39,7 @@ const ShortSurahContainer = ({
                   columnIndex={0}
                   rowIndex={index}
                 >
-                  <div style={{ ...style, paddingBottom: "5px" }}>
+                  <div style={{ ...style, paddingBottom: "7px" }}>
                     <ShortSurah
                       surah={surah}
                       currentSurahNumber={currentSurahNumber}
