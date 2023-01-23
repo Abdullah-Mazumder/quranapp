@@ -185,7 +185,7 @@ const HolyQuranContainer = () => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-12 md:bottom-2 left-0 txtColor w-full">
+      <div className="absolute bottom-6 md:bottom-2 left-0 txtColor w-full">
         <div className="flex justify-center items-center">
           <Tooltip
             TransitionComponent={Zoom}
@@ -208,7 +208,7 @@ const HolyQuranContainer = () => {
         </div>
       </div>
       <div
-        className="absolute bottom-12 md:bottom-2 txtColor z-[9999] w-full translate-y-[550px]"
+        className="absolute bottom-6 md:bottom-2 txtColor z-[9999] w-full translate-y-[550px]"
         ref={settingBoxRef}
       >
         <div className="absolute top-[-25px] w-[100%] flex justify-center items-center">
@@ -234,16 +234,16 @@ const HolyQuranContainer = () => {
           </div>
         </div>
         <div className="container mx-auto bgColor1 p-3 rounded-lg">
-          <div className="md:flex items-center justify-between gap-3 space-y-3 md:space-y-0">
+          <div className="md:flex items-start justify-between gap-3 space-y-3 md:space-y-0">
             <div className="size bgColor2 hoverBg p-3 rounded-lg flex-1">
               <div className="text-center mb-3">
-                <span className="divider text-xl px-4 pb-1 font-bold">
+                <span className="divider text-xl md:text-xl px-4 pb-1 font-semibold md:font-bold">
                   Text Size
                 </span>
               </div>
               <div className="space-y-6">
                 <div className="flex items-center justify-between gap-8">
-                  <p className="text-lg font-semibold">Arabic</p>
+                  <p className="text-sm md:text-lg font-semibold">Arabic</p>
                   <div className="range w-full flex items-center">
                     <PrettoSlider
                       valueLabelDisplay="auto"
@@ -255,7 +255,7 @@ const HolyQuranContainer = () => {
                   </div>
                 </div>
                 <div className="flex items-center justify-between gap-8">
-                  <p className="text-lg font-semibold">Bangla</p>
+                  <p className="text-sm md:text-lg font-semibold">Bangla</p>
                   <div className="range w-full flex items-center">
                     <PrettoSlider
                       valueLabelDisplay="auto"
@@ -267,7 +267,7 @@ const HolyQuranContainer = () => {
                   </div>
                 </div>
                 <div className="flex items-center justify-between gap-8">
-                  <p className="text-lg font-semibold">English</p>
+                  <p className="text-sm md:text-lg font-semibold">English</p>
                   <div className="range w-full flex items-center">
                     <PrettoSlider
                       valueLabelDisplay="auto"
@@ -282,13 +282,13 @@ const HolyQuranContainer = () => {
             </div>
             <div className="font bgColor2 hoverBg p-3 rounded-lg h-full flex-1">
               <div className="text-center mb-3">
-                <span className="divider text-xl px-4 pb-1 font-bold">
+                <span className="divider text-xl md:text-xl px-4 pb-1 font-semibold md:font-bold">
                   Text Size
                 </span>
               </div>
               <div className="space-y-4">
                 <div className="flex items-center gap-5">
-                  <p className="text-lg font-semibold">Tazweed</p>
+                  <p className="text-sm md:text-lg font-semibold">Tazweed</p>
                   <div>
                     <Switch
                       checked={checked}
@@ -298,7 +298,7 @@ const HolyQuranContainer = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-5">
-                  <p className="text-lg font-semibold">
+                  <p className="text-sm md:text-lg font-semibold">
                     Arabic Font ( Hafezi )
                   </p>
                   <div>
