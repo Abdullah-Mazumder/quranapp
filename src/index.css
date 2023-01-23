@@ -12,6 +12,11 @@
   src: url("./fonts/banglaquran.otf") format("truetype");
 }
 
+@font-face {
+  font-family: "arabic2";
+  src: url("./fonts/110_Besmellah_[Takmob.Net].TTF") format("truetype");
+}
+
 .arabicTxt {
   font-family: "hafezi" !important;
 }

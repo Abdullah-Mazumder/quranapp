@@ -28,8 +28,10 @@ const HolyQuranContainer = () => {
   const [lastReadedAyah, setLastReadedAyah] = useState();
   const [settingsBox, setSettingsBox] = useState(false);
   const [arabicTextSize, setArabicTextSize] = useState();
-  const [banglaTextSize, setBanglaTextSize] = useState(22);
-  const [englishTextSize, setEnglishTextSize] = useState(22);
+  const [banglaTextSize, setBanglaTextSize] = useState();
+  const [englishTextSize, setEnglishTextSize] = useState();
+  const [enableTazweed, setEnableTazweed] = useState(true);
+  const [hafeziFont, setHafeziFont] = useState(true);
 
   const saveToReadLater = (surah, ayah) => {
     if (!localStorage.getItem("holyQuran")) {
@@ -72,7 +74,7 @@ const HolyQuranContainer = () => {
           list: data,
         });
       });
-    }, 2000);
+    }, 500);
   }, []);
 
   useEffect(() => {
@@ -88,7 +90,7 @@ const HolyQuranContainer = () => {
             surah: data.default,
           });
         });
-      }, 2000);
+      }, 500);
     }
   }, [currentSurahNumber]);
 
@@ -124,7 +126,35 @@ const HolyQuranContainer = () => {
     setEnglishTextSize(
       JSON.parse(localStorage.getItem("englishTextSize")) || 18
     );
+    setEnableTazweed(
+      Boolean(JSON.parse(localStorage.getItem("enableTazweed")))
+    );
+
+    if (JSON.parse(localStorage.getItem("enableTazweed")) === null) {
+      setEnableTazweed(true);
+    } else if (JSON.parse(localStorage.getItem("enableTazweed")) === false) {
+      setEnableTazweed(false);
+    } else {
+      setEnableTazweed(true);
+    }
+
+    if (JSON.parse(localStorage.getItem("hafeziFont")) === null) {
+      setHafeziFont(true);
+    } else if (JSON.parse(localStorage.getItem("hafeziFont")) === false) {
+      setHafeziFont(false);
+    } else {
+      setHafeziFont(true);
+    }
   }, []);
+
+  useEffect(() => {
+    const holyQuran = document.getElementById("holyQuran");
+    if (!hafeziFont) {
+      holyQuran.classList.add("notHafeziFont");
+    } else {
+      holyQuran.classList.remove("notHafeziFont");
+    }
+  }, [hafeziFont]);
 
   const PrettoSlider = styled(Slider)({
     color: "#52af77",
@@ -165,11 +195,6 @@ const HolyQuranContainer = () => {
     },
   });
 
-  const [checked, setChecked] = React.useState(true);
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-  };
-
   return (
     <>
       <div className="mt-[60px] h-full w-full">
@@ -192,6 +217,7 @@ const HolyQuranContainer = () => {
                   arabicTextSize={arabicTextSize}
                   banglaTextSize={banglaTextSize}
                   englishTextSize={englishTextSize}
+                  enableTazweed={enableTazweed}
                 />
               </div>
             </div>
@@ -320,7 +346,7 @@ const HolyQuranContainer = () => {
             <div className="font bgColor2 hoverBg p-3 rounded-lg h-full flex-1">
               <div className="text-center mb-3">
                 <span className="divider text-xl md:text-xl px-4 pb-1 font-semibold md:font-bold">
-                  Text Size
+                  Font & Tazweed
                 </span>
               </div>
               <div className="space-y-4">
@@ -328,8 +354,14 @@ const HolyQuranContainer = () => {
                   <p className="text-sm md:text-lg font-semibold">Tazweed</p>
                   <div>
                     <Switch
-                      checked={checked}
-                      onChange={handleChange}
+                      checked={enableTazweed}
+                      onChange={() => {
+                        setEnableTazweed(!enableTazweed);
+                        localStorage.setItem(
+                          "enableTazweed",
+                          JSON.stringify(!enableTazweed)
+                        );
+                      }}
                       color="success"
                     />
                   </div>
@@ -340,8 +372,14 @@ const HolyQuranContainer = () => {
                   </p>
                   <div>
                     <Switch
-                      checked={checked}
-                      onChange={handleChange}
+                      checked={hafeziFont}
+                      onChange={() => {
+                        setHafeziFont(!hafeziFont);
+                        localStorage.setItem(
+                          "hafeziFont",
+                          JSON.stringify(!hafeziFont)
+                        );
+                      }}
                       color="success"
                     />
                   </div>

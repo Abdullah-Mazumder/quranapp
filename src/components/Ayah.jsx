@@ -111,7 +111,6 @@ const Ayah = ({
             className="arabicTxt text-right w-full mt-1"
             style={{
               fontSize: `${arabicTextSize}px`,
-              lineHeight: `${arabicTextSize}px`,
             }}
           >
             <RenderHtml htmlString={colorText} />
@@ -122,7 +121,6 @@ const Ayah = ({
           className="txtColor text-left bangla py-3 divider bnTxt"
           style={{
             fontSize: `${banglaTextSize}px`,
-            lineHeight: `${banglaTextSize}px`,
           }}
         >
           {bangl_text}
@@ -132,7 +130,6 @@ const Ayah = ({
           className="txtColor text-left text-lg english py-3 divider"
           style={{
             fontSize: `${englishTextSize}px`,
-            lineHeight: `${englishTextSize}px`,
           }}
         >
           {english_text}

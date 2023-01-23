@@ -15,6 +15,7 @@ const RightSideBottomContainer = ({
   arabicTextSize,
   banglaTextSize,
   englishTextSize,
+  enableTazweed,
 }) => {
   const ayahRef = useRef();
   const cache = useRef(
@@ -32,7 +33,7 @@ const RightSideBottomContainer = ({
   return (
     <>
       <div
-        className={`h-full ${
+        className={`h-full ${enableTazweed ? "colorTxt" : ""} ${
           fullSurah.verses.length > 15 ? "" : "space-y-2 overflow-y-auto"
         }`}
       >

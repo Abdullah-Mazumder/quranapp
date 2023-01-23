@@ -13,6 +13,7 @@ const RightSideContainer = ({
   arabicTextSize,
   banglaTextSize,
   englishTextSize,
+  enableTazweed,
 }) => {
   const { loading, surah } = fullSurah;
 
@@ -37,6 +38,7 @@ const RightSideContainer = ({
               arabicTextSize={arabicTextSize}
               banglaTextSize={banglaTextSize}
               englishTextSize={englishTextSize}
+              enableTazweed={enableTazweed}
             />
           )}
         </div>

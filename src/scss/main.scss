@@ -10,6 +10,12 @@ body {
   overflow: hidden !important;
 }
 
+#holyQuran.notHafeziFont {
+  .arabicTxt {
+    font-family: "arabic2" !important;
+  }
+}
+
 @media (max-width: 768px) {
   #holyQuran {
     padding-bottom: 20px;
@@ -28,6 +34,7 @@ body {
 }
 
 .wave-pillar {
+  transform-origin: bottom;
   animation: wave 1s ease-in-out infinite;
 }
 
@@ -178,6 +185,65 @@ body {
     background-color: rgb(237, 247, 237);
     color: rgb(30, 70, 32);
   }
+
+  .ham_wasl,
+  .slnt,
+  .laam_shamsiyah {
+    color: black;
+  }
+
+  .madda_normal {
+    color: black;
+  }
+
+  .madda_permissible {
+    color: black;
+  }
+
+  .madda_necessary {
+    color: black;
+  }
+
+  .qalaqah {
+    color: black;
+  }
+
+  .madda_obligatory {
+    color: black;
+  }
+
+  .ikhafa_shafawi {
+    color: black;
+  }
+
+  .ikhafa {
+    color: black;
+  }
+
+  .idgham_shafawi {
+    color: black;
+  }
+
+  .iqlab {
+    color: black;
+  }
+
+  .idgham_ghunnah {
+    color: black;
+  }
+
+  .idgham_wo_ghunnah {
+    color: black;
+  }
+
+  .idgham_mutajanisayn,
+  .idgham_mutaqaribayn {
+    color: black;
+  }
+
+  .ghunnah {
+    color: black;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -190,66 +256,67 @@ body {
   border-radius: 10%;
 }
 
-.ham_wasl,
-.slnt,
-.laam_shamsiyah {
-  color: #aaaaaa;
-}
+.colorTxt {
+  .ham_wasl,
+  .slnt,
+  .laam_shamsiyah {
+    color: #aaaaaa;
+  }
 
-.madda_normal {
-  color: #537fff;
-}
+  .madda_normal {
+    color: #537fff;
+  }
 
-.madda_permissible {
-  color: #4050ff;
-}
+  .madda_permissible {
+    color: #4050ff;
+  }
 
-.madda_necessary {
-  color: #000ebc;
-}
+  .madda_necessary {
+    color: #000ebc;
+  }
 
-.qalaqah {
-  color: #dd0008;
-}
+  .qalaqah {
+    color: #dd0008;
+  }
 
-.madda_obligatory {
-  color: #2144c1;
-}
+  .madda_obligatory {
+    color: #2144c1;
+  }
 
-.ikhafa_shafawi {
-  color: #d500b7;
-}
+  .ikhafa_shafawi {
+    color: #d500b7;
+  }
 
-.ikhafa {
-  color: #9400a8;
-}
+  .ikhafa {
+    color: #9400a8;
+  }
 
-.idgham_shafawi {
-  color: #58b800;
-}
+  .idgham_shafawi {
+    color: #58b800;
+  }
 
-.iqlab {
-  color: #26bffd;
-}
+  .iqlab {
+    color: #26bffd;
+  }
 
-.idgham_ghunnah {
-  color: #169777;
-}
+  .idgham_ghunnah {
+    color: #169777;
+  }
 
-.idgham_wo_ghunnah {
-  color: #169200;
-}
+  .idgham_wo_ghunnah {
+    color: #169200;
+  }
 
-.idgham_mutajanisayn,
-.idgham_mutaqaribayn {
-  color: #a1a1a1;
-}
+  .idgham_mutajanisayn,
+  .idgham_mutaqaribayn {
+    color: #a1a1a1;
+  }
 
-.ghunnah {
-  color: #ff7e1e;
+  .ghunnah {
+    color: #ff7e1e;
+  }
 }
-
 .end {
-  margin-right: 10px;
+  margin-right: 8px;
   font-size: 20px;
 }
