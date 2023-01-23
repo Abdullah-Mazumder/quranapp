@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-unused-vars */
-import { Slider, Switch, Tooltip, Zoom } from "@mui/material";
+import { Alert, Slider, Switch, Tooltip, Zoom } from "@mui/material";
 import TuneIcon from "@mui/icons-material/Tune";
 import CloseIcon from "@mui/icons-material/Close";
 import React, { useRef } from "react";
@@ -27,6 +27,9 @@ const HolyQuranContainer = () => {
   const [lastReadSurah, setLastReadSurah] = useState();
   const [lastReadedAyah, setLastReadedAyah] = useState();
   const [settingsBox, setSettingsBox] = useState(false);
+  const [arabicTextSize, setArabicTextSize] = useState();
+  const [banglaTextSize, setBanglaTextSize] = useState(22);
+  const [englishTextSize, setEnglishTextSize] = useState(22);
 
   const saveToReadLater = (surah, ayah) => {
     if (!localStorage.getItem("holyQuran")) {
@@ -115,6 +118,14 @@ const HolyQuranContainer = () => {
     }
   }, [settingsBox]);
 
+  useEffect(() => {
+    setArabicTextSize(JSON.parse(localStorage.getItem("arabicTextSize")) || 40);
+    setBanglaTextSize(JSON.parse(localStorage.getItem("banglaTextSize")) || 20);
+    setEnglishTextSize(
+      JSON.parse(localStorage.getItem("englishTextSize")) || 18
+    );
+  }, []);
+
   const PrettoSlider = styled(Slider)({
     color: "#52af77",
     height: 8,
@@ -155,7 +166,6 @@ const HolyQuranContainer = () => {
   });
 
   const [checked, setChecked] = React.useState(true);
-
   const handleChange = (event) => {
     setChecked(event.target.checked);
   };
@@ -179,6 +189,9 @@ const HolyQuranContainer = () => {
                   saveToReadLater={saveToReadLater}
                   readLater={readLater}
                   lastReadedAyah={lastReadedAyah}
+                  arabicTextSize={arabicTextSize}
+                  banglaTextSize={banglaTextSize}
+                  englishTextSize={englishTextSize}
                 />
               </div>
             </div>
@@ -241,6 +254,9 @@ const HolyQuranContainer = () => {
                   Text Size
                 </span>
               </div>
+              <Alert severity="success" className="bgSuccess">
+                You have to reload after changing the font size
+              </Alert>
               <div className="space-y-6">
                 <div className="flex items-center justify-between gap-8">
                   <p className="text-sm md:text-lg font-semibold">Arabic</p>
@@ -248,9 +264,16 @@ const HolyQuranContainer = () => {
                     <PrettoSlider
                       valueLabelDisplay="auto"
                       aria-label="pretto slider"
-                      defaultValue={20}
-                      max={30}
+                      defaultValue={arabicTextSize}
+                      max={100}
                       min={14}
+                      onChangeCommitted={(_e, value) => {
+                        setArabicTextSize(value);
+                        localStorage.setItem(
+                          "arabicTextSize",
+                          JSON.stringify(value)
+                        );
+                      }}
                     />
                   </div>
                 </div>
@@ -260,9 +283,16 @@ const HolyQuranContainer = () => {
                     <PrettoSlider
                       valueLabelDisplay="auto"
                       aria-label="pretto slider"
-                      defaultValue={20}
-                      max={30}
+                      defaultValue={banglaTextSize}
+                      max={100}
                       min={14}
+                      onChangeCommitted={(_e, value) => {
+                        setBanglaTextSize(value);
+                        localStorage.setItem(
+                          "banglaTextSize",
+                          JSON.stringify(value)
+                        );
+                      }}
                     />
                   </div>
                 </div>
@@ -272,9 +302,16 @@ const HolyQuranContainer = () => {
                     <PrettoSlider
                       valueLabelDisplay="auto"
                       aria-label="pretto slider"
-                      defaultValue={20}
-                      max={30}
+                      defaultValue={englishTextSize}
+                      max={100}
                       min={14}
+                      onChangeCommitted={(_e, value) => {
+                        setEnglishTextSize(value);
+                        localStorage.setItem(
+                          "englishTextSize",
+                          JSON.stringify(value)
+                        );
+                      }}
                     />
                   </div>
                 </div>

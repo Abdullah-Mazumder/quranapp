@@ -28,6 +28,9 @@ const Ayah = ({
   readLater,
   ayahRef,
   lastReadedAyah,
+  arabicTextSize,
+  banglaTextSize,
+  englishTextSize,
   // currentAyahPlaying,
   // setCurrentAyahPlaying,
 }) => {
@@ -102,21 +105,35 @@ const Ayah = ({
 
         <Box
           component="p"
-          className="txtColor text-xl arabic flex items-center justify-between py-3 divider"
+          className="txtColor arabic flex items-center justify-between py-3 divider"
         >
-          <span className="arabicTxt text-right w-full text-4xl lg:text-5xl mt-1 !leading-[50px] md:!leading-[60px]">
+          <span
+            className="arabicTxt text-right w-full mt-1"
+            style={{
+              fontSize: `${arabicTextSize}px`,
+              lineHeight: `${arabicTextSize}px`,
+            }}
+          >
             <RenderHtml htmlString={colorText} />
           </span>
         </Box>
         <Box
           component="p"
-          className="txtColor text-left text-lg bangla py-3 divider bnTxt"
+          className="txtColor text-left bangla py-3 divider bnTxt"
+          style={{
+            fontSize: `${banglaTextSize}px`,
+            lineHeight: `${banglaTextSize}px`,
+          }}
         >
           {bangl_text}
         </Box>
         <Box
           component="p"
           className="txtColor text-left text-lg english py-3 divider"
+          style={{
+            fontSize: `${englishTextSize}px`,
+            lineHeight: `${englishTextSize}px`,
+          }}
         >
           {english_text}
         </Box>

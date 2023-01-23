@@ -10,6 +10,9 @@ const RightSideContainer = ({
   saveToReadLater,
   readLater,
   lastReadedAyah,
+  arabicTextSize,
+  banglaTextSize,
+  englishTextSize,
 }) => {
   const { loading, surah } = fullSurah;
 
@@ -31,6 +34,9 @@ const RightSideContainer = ({
               saveToReadLater={saveToReadLater}
               readLater={readLater}
               lastReadedAyah={lastReadedAyah}
+              arabicTextSize={arabicTextSize}
+              banglaTextSize={banglaTextSize}
+              englishTextSize={englishTextSize}
             />
           )}
         </div>

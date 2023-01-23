@@ -12,6 +12,9 @@ const RightSideBottomContainer = ({
   saveToReadLater,
   readLater,
   lastReadedAyah,
+  arabicTextSize,
+  banglaTextSize,
+  englishTextSize,
 }) => {
   const ayahRef = useRef();
   const cache = useRef(
@@ -63,6 +66,9 @@ const RightSideBottomContainer = ({
                           readLater={readLater}
                           lastReadedAyah={lastReadedAyah}
                           ayahRef={ayahRef}
+                          arabicTextSize={arabicTextSize}
+                          banglaTextSize={banglaTextSize}
+                          englishTextSize={englishTextSize}
                         />
                       </div>
                     </CellMeasurer>
@@ -82,6 +88,9 @@ const RightSideBottomContainer = ({
                 readLater={readLater}
                 lastReadedAyah={lastReadedAyah}
                 ayahRef={ayahRef}
+                arabicTextSize={arabicTextSize}
+                banglaTextSize={banglaTextSize}
+                englishTextSize={englishTextSize}
               />
             ))}
           </>
