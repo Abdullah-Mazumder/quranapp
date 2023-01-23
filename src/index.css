@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+}
 
 @font-face {
   font-family: "hafezi";
@@ -9,7 +14,7 @@
 
 @font-face {
   font-family: "bn";
-  src: url("./fonts/banglaquran.otf") format("truetype");
+  src: url("./fonts/LiAlinurPriyoshiANSIV1-Italic.ttf") format("truetype");
 }
 
 @font-face {
