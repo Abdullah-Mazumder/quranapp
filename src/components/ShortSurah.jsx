@@ -33,7 +33,7 @@ const ShortSurah = ({
         <div className="surahLogo w-[45px] h-[45px] flex items-center justify-center">
           <span className="text-sm">{id}</span>
         </div>
-        <div className="w-[50%] md:w-[80%] details flex items-center justify-between">
+        <div className="w-[70%] md:w-[80%] details flex items-center justify-between">
           <div>
             <div className="name flex flex-col gap-0 text-md md:text-lg">
               <div className="my-1">
