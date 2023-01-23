@@ -208,7 +208,7 @@ const HolyQuranContainer = () => {
         </div>
       </div>
       <div
-        className="absolute bottom-0 md:bottom-2 txtColor z-[9999] w-full translate-y-[550px]"
+        className="absolute bottom-1 md:bottom-2 txtColor z-[9999] w-full translate-y-[550px]"
         ref={settingBoxRef}
       >
         <div className="absolute top-[-25px] w-[100%] flex justify-center items-center">
